@@ -14,16 +14,17 @@ For preprocessing, all words were converted to lowercase according to Azerbaijan
 
 
 
-Mən yeganə yerdir ki, buranın pizzalarını çox bəyənirəm, qiymətləri digər pizza restoranları ilə müqayisədə sərfəlidir. Bəzən elədikləri kompaniyalar çox yaxşı olur və mən də dəyərləndirməyə çalışıram. Pizzaların dadı möhtəşəmdi mənə görə. Telegram adım @muradaevv
+- Mən yeganə yerdir ki, buranın pizzalarını çox bəyənirəm, qiymətləri digər pizza restoranları ilə müqayisədə sərfəlidir. Bəzən elədikləri kompaniyalar çox yaxşı olur və mən də dəyərləndirməyə çalışıram. Pizzaların dadı möhtəşəmdi mənə görə. Telegram adım @muradaevv
 
-***yeganə yerdir buranın pizzalarını bəyənirəm qiymətləri digər pizza restoranları müqayisədə sərfəlidir bəzən elədikləri kompaniyalar yaxşı olur dəyərləndirməyə çalışıram pizzaların dadı möhtəşəmdi mənə görə telegram adım USER***
+   - ***yeganə yerdir buranın pizzalarını bəyənirəm qiymətləri digər pizza restoranları müqayisədə sərfəlidir bəzən elədikləri kompaniyalar yaxşı olur dəyərləndirməyə çalışıram pizzaların dadı möhtəşəmdi mənə görə telegram adım USER***
 
-Kiçikdən böyüyə hamı öz bacardığı qədər çapmağa niyyətlənib. Belin qırılsın #Azercell
-***kiçikdən böyüyə hamı öz bacardığı qədər çapmağa niyyətlənib belin qırılsın azercell***
+- Kiçikdən böyüyə hamı öz bacardığı qədər çapmağa niyyətlənib. Belin qırılsın #Azercell
 
-Coooooox pis şirkətdir. Bununla ikinci dəfədir kargoda problem yaşayıram. Türkiyeden birbaşa əməkdaşlıqla məşğuldurlar guya bağlama gedib çatmır gomruye. Tel işləmir Trendyola da 40 dəfə yazıram ne xeyri min zülmlə pulu geri göndərdilər o da günün mezennesibe göre mene sərf etmir axı
-.
-***coox pis şirkətdir bununla ikinci dəfədir kargoda problem yaşayıram türkiyeden birbaşa əməkdaşlıqla məşğuldurlar guya bağlama gedib çatmır gomruye tel işləmir trendyola <NUM> dəfə yazıram ne xeyri min zülmlə pulu geri göndərdilər günün mezennesibe göre mene sərf etmir axı***
+    - ***kiçikdən böyüyə hamı öz bacardığı qədər çapmağa niyyətlənib belin qırılsın azercell***
+
+- Coooooox pis şirkətdir. Bununla ikinci dəfədir kargoda problem yaşayıram. Türkiyeden birbaşa əməkdaşlıqla məşğuldurlar guya bağlama gedib çatmır gomruye. Tel işləmir Trendyola da 40 dəfə yazıram ne xeyri min zülmlə pulu geri göndərdilər o da günün mezennesibe göre mene sərf etmir axı
+
+    - ***coox pis şirkətdir bununla ikinci dəfədir kargoda problem yaşayıram türkiyeden birbaşa əməkdaşlıqla məşğuldurlar guya bağlama gedib çatmır gomruye tel işləmir trendyola <NUM> dəfə yazıram ne xeyri min zülmlə pulu geri göndərdilər günün mezennesibe göre mene sərf etmir axı***
 
 
 
@@ -34,7 +35,8 @@ Coooooox pis şirkətdir. Bununla ikinci dəfədir kargoda problem yaşayıram. 
 - Hashtag texts were split according to camel case. 
 - Before tokenization, a small dictionary was built to map emojis to EMO_POS or EMO_NEG.  
 - In addition to the existing stopwords (və, ilə, amma, ancaq, lakin, ya, həm, ki, bu, bir, o, biz, siz, mən, sən, orada, burada, bütün, hər, artıq, çox, az, ən, də, da, üçün), ten more stopwords were added: necə, şey, isə, hələ, nə, niyə, kimi, belə, indi, qədər.  All of these words also have equivalents in Turkish and English:  
-(Azerbaijani→ Turkish → English) → (necə → nasıl → how), (şey → şey → thing), (isə → ise → whereas), (hələ → hâlâ → still/yet), (nə → ne → what), (niyə → niye → why), (kimi → gibi → like/as), (belə → böyle → like this/so), (indi → şimdi → now), (qədər → kadar → as much as/until).  
+(Azerbaijani→ Turkish → English) → (necə → nasıl → how), (şey → şey → thing), (isə → ise → whereas), (hələ → hâlâ → still/yet), (nə → ne → what), (niyə → niye → why), (kimi → gibi → like/as), (belə → böyle → like this/so), (indi → şimdi → now), (qədər → kadar → as much as/until).
+    - f
 - Based on the negator, the one preceding or the three following words were marked with the _NEG suffix.  
 - A small ASCII mapping was also applied to convert words such as cox → çox and  yaxsi → yaxşı.
 
@@ -45,6 +47,49 @@ Coooooox pis şirkətdir. Bununla ikinci dəfədir kargoda problem yaşayıram. 
 A four-class domain scheme was applied consisting of news, social, reviews, and general. Domain detection was performed using a rule-based approach relying on keyword and pattern matching. News texts were detected through keywords such as *apa, trend, azertac, reuters, bloomberg, dha,* and *aa*. Social texts were identified by the presence of *rt*, *@*, *#*, *USER*, and also by the use of emojis. Reviews were detected based on keywords such as *azn, manat, qiymət, aldım, ulduz, çox yaxşı,* and *çox pis*, as well as the domain-specific tags \<STARS\>, \<RATING_POS>, and \<RATING_NEG>. For this domain, additional normalization rules were applied: price expressions such as “20 manat” were replaced with the tag \<PRICE>, positive and negative rating phrases were substituted by \<RATING_POS> and \<RATING_NEG>, and star expressions (e.g., *5 ulduz*) were normalized to \<STARS_5>. General texts received only the basic Azerbaijani-aware cleaning without any further substitutions.  
 
 Finally, after normalization, each sentence in the combined corpus was prepended with a domain tag token (e.g., domnews, domsocial, domreviews, domgeneral). These tags were automatically added using the add_domain_tag() function before writing the final corpus_all.txt ensuring that every line in the training corpus explicitly carries its detected domain context.
+
+---
+
+### 5) Embeddings
+
+#### Training Settings and Results
+
+| Feature | Word2Vec | FastText |
+|----------|-----------|-----------|
+| Vector Size | 200 | 200 |
+| Window | 2 | 2 |
+| Min Count | 1 | 1 |
+| SG (0=CBOW, 1=Skip-gram) | 1 | 1 |
+| Epochs | 10 | 10 |
+| Coverage (%) | 1 | 1 |
+| Seed | 42 | 42 |
+| Negative Sampling | 5 | - |
+| Min_n| - | 3 |
+| Max_n| - | 9 |
+| Avg Synonym Similarity |0.592  | 0.608 |
+| Avg Antonym Similarity | 0.490 | 0.503 |
+| Separation(Syn - Ant)  | 0.101 | 0.106 |
+
+
+#### Nearest neighbors (qualitative)
+- W2V NN for ***yaxşı***: `['<RATING_POS>', 'iyi', 'yaxşi', 'yaxshi', 'zor']`
+- FT  NN for ***yaxşı***: `['yaxşıı', 'yaxşıfı', 'yaxşıkı', 'yaxşııdıı', 'yaxşıca']`
+- W2V NN for ***pis***: `['<RATING_NEG>', 'bərbad', 'iyi', 'zay', 'berbat']`
+- FT  NN for ***pis***: `['pispispis', 'pisdr', 'piss', 'piis', 'pissdii']`
+- W2V NN for ***çox***: `['çoox', 'coox', 'temu', 'chox', 'bəyənirəm']`
+- FT  NN for ***çox***: `['ççox', 'çoxçox', 'çoxx', 'çoh', 'ço']`
+- W2V NN for ***bahalı***: `['acılı', 'nəhəng', 'kefiyyətsiz', 'növbələriniz', 'detallara']`
+- FT  NN for ***bahalı***: `['bahalıı', 'bahalısı', 'baharlı', 'bahalıdı', 'bahaymış']`
+- W2V NN for ***ucuz***: `['münasib', 'baha', 'qiymətə', 'qiymete', 'toyuğu']`
+- FT  NN for ***ucuz***: `['ucuzlu', 'ucuzluk', 'ucuza', 'ucuzu', 'ucuzdu']`
+- W2V NN for ***mükəmməl***: `['möhtəşəm', 'yararlı', 'süper', 'möhtəşəmm', 'süjetli']`
+- FT  NN for ***mükəmməl***: `['mükəmməll', 'mükəmməldii', 'mükəmməldiçox', 'mükemməl', 'qeyrimükəmməl']`
+- W2V NN for ***dəhşət***: `['hədsiz', 'çoox', 'gülməlidir', 'çoxx', 'kanaldır']`
+- FT  NN for ***dəhşət***: `['dəhşətt', 'dəhşətdü', 'dəhşətdie', 'dəhşətizm', 'dəhşətiymiş']`
+- W2V NN for ***<PRICE\>***: `['qəpik', 'kartdan', 'dollar', 'aylıq', 'azn']`
+- FT  NN for ***<PRICE\>***: `['manatmıpul', 'manatdısa', 'manatdığ', 'manatlığ', 'manats']`
+- W2V NN for ***<RATING_POS\>***: `['süper', 'yaxşi', 'superdir', 'əlverişli', 'əla']`
+- FT  NN for ***<RATING_POS\>***: `['süperr', 'süper', 'zuperr', 'çooxxzorr', 'yaxşiliğa']`
 
 ---
 
