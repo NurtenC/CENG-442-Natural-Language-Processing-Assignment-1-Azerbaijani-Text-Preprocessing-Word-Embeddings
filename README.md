@@ -45,3 +45,33 @@ Coooooox pis şirkətdir. Bununla ikinci dəfədir kargoda problem yaşayıram. 
 A four-class domain scheme was applied consisting of news, social, reviews, and general. Domain detection was performed using a rule-based approach relying on keyword and pattern matching. News texts were detected through keywords such as *apa, trend, azertac, reuters, bloomberg, dha,* and *aa*. Social texts were identified by the presence of *rt*, *@*, *#*, *USER*, and also by the use of emojis. Reviews were detected based on keywords such as *azn, manat, qiymət, aldım, ulduz, çox yaxşı,* and *çox pis*, as well as the domain-specific tags \<STARS\>, \<RATING_POS>, and \<RATING_NEG>. For this domain, additional normalization rules were applied: price expressions such as “20 manat” were replaced with the tag \<PRICE>, positive and negative rating phrases were substituted by \<RATING_POS> and \<RATING_NEG>, and star expressions (e.g., *5 ulduz*) were normalized to \<STARS_5>. General texts received only the basic Azerbaijani-aware cleaning without any further substitutions.  
 
 Finally, after normalization, each sentence in the combined corpus was prepended with a domain tag token (e.g., domnews, domsocial, domreviews, domgeneral). These tags were automatically added using the add_domain_tag() function before writing the final corpus_all.txt ensuring that every line in the training corpus explicitly carries its detected domain context.
+
+---
+
+### 6) Lemmatization
+
+We found two sources for Azerbaijani lemmatization Apertium and MorAz. However, we were unable to integrate them into the model.
+
+---
+
+### 7) Reproducibility
+
+- Versions:
+    - Python: 3.12.12
+    - pandas: 2.2.2
+    - ftfy: 6.3.1
+    - gensim: 4.4.0
+    - openpyxl: 3.1.5
+
+- Seed: 42
+
+- Machine: Google Colab CPU
+
+
+- How to run: 
+    - Run 1stpart_nlp_assignment.ipynb in Colab or your computer
+        - Assign your paths to drive_path_raw and drive_path_cleaned
+    - Run 2ndpart_nlp_assignment.ipynb in Colab or your computer
+        - Assign your paths to drive_path_cleaned and drive_path_embeddings
+    - Run 3rdpart_nlp_assignment.ipynb in Colab or your computer
+        - Assign your paths to drive_path_cleaned and drive_path_embeddings 
