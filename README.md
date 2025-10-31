@@ -1,7 +1,14 @@
 # CENG-442-Natural-Language-Processing-Assignment-1-Azerbaijani-Text-Preprocessing-Word-Embeddings
 
 21050111027 Nurten Çiftçioğlu
+
 23050151030 Muhammed Enes Uğraş
+
+---
+
+Embeddings: [v200w2min1neg5epoc10fastt3_9](https://drive.google.com/drive/folders/1StuVwMDDu43o1ni5r-VAKz2e4SjgUWFZ?usp=sharing)
+
+---
 
 ### 1) Data & Goal
 
