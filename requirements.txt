@@ -1,0 +1,4 @@
+gensim==4.4.0
+ftfy==6.3.1
+pandas==2.2.2
+openpyxl==3.1.5

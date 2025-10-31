@@ -1,5 +1,8 @@
 # CENG-442-Natural-Language-Processing-Assignment-1-Azerbaijani-Text-Preprocessing-Word-Embeddings
 
+21050111027 Nurten Çiftçioğlu
+23050151030 Muhammed Enes Uğraş
+
 ### 1) Data & Goal
 
 The purpose of this assignment is to preprocess the train and test data for use in sentiment analysis and to obtain the best Word2Vec and FastText implementations for the Azerbaijani language by varying the hyperparameters such as vector size, window size, epoch count, and training methods (CBOW, Skip-gram). The dataset used in the assignment consists of five Azerbaijani text files that need to be processed. The lines in these texts are labeled as negative (0) and positive (1). There are also lines labeled as neutral, which must be assigned a numerical value. The chosen value for the neutral label is 0.5, because neutrality represents being neither positive nor negative. The value 0.5 is exactly between 0 and 1. For example, if the sentiment score is 0.6, it is only slightly positive, not strongly positive. As the score gets closer to 0, it becomes more negative. Therefore, 0.5 is a good choice because it stands in the middle and clearly represents a neutral feeling.
