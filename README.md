@@ -36,7 +36,7 @@ For preprocessing, all words were converted to lowercase according to Azerbaijan
 - Before tokenization, a small dictionary was built to map emojis to EMO_POS or EMO_NEG.  
 - In addition to the existing stopwords (və, ilə, amma, ancaq, lakin, ya, həm, ki, bu, bir, o, biz, siz, mən, sən, orada, burada, bütün, hər, artıq, çox, az, ən, də, da, üçün), ten more stopwords were added: necə, şey, isə, hələ, nə, niyə, kimi, belə, indi, qədər.  All of these words also have equivalents in Turkish and English:  
 (Azerbaijani→ Turkish → English) → (necə → nasıl → how), (şey → şey → thing), (isə → ise → whereas), (hələ → hâlâ → still/yet), (nə → ne → what), (niyə → niye → why), (kimi → gibi → like/as), (belə → böyle → like this/so), (indi → şimdi → now), (qədər → kadar → as much as/until).
-    - f
+    - After several training experiments we concluded that removing stopwords reduces synonym and antonym scores. Therefore, we decided not to use stopwords
 - Based on the negator, the one preceding or the three following words were marked with the _NEG suffix.  
 - A small ASCII mapping was also applied to convert words such as cox → çox and  yaxsi → yaxşı.
 
@@ -61,7 +61,7 @@ Finally, after normalization, each sentence in the combined corpus was prepended
 | Min Count | 1 | 1 |
 | SG (0=CBOW, 1=Skip-gram) | 1 | 1 |
 | Epochs | 10 | 10 |
-| Coverage (%) | 1 | 1 |
+| Coverage (%) | 100 | 100 |
 | Seed | 42 | 42 |
 | Negative Sampling | 5 | - |
 | Min_n| - | 3 |
@@ -119,4 +119,10 @@ We found two sources for Azerbaijani lemmatization Apertium and MorAz. However, 
     - Run 2ndpart_nlp_assignment.ipynb in Colab or your computer
         - Assign your paths to drive_path_cleaned and drive_path_embeddings
     - Run 3rdpart_nlp_assignment.ipynb in Colab or your computer
-        - Assign your paths to drive_path_cleaned and drive_path_embeddings 
+        - Assign your paths to drive_path_cleaned and drive_path_embeddings
+     
+---
+
+### 8) Conclusion
+
+Between the two models FastText performed slightly better than Word2Vec. Both models achieved full vocabulary coverage but FastText produced higher synonym and antonym separation. Before training we already expected better performance from FastText because it uses subword n-grams which help it capture affixes and morphological variations of the same word more effectively. Since Azerbaijani is a morphologically rich language this capability is particularly important. As seen in the synonym lists for the seed words FastText was able to identify words that were both semantically and syntactically similar, while Word2Vec mostly found only semantically related ones. This shows that FastText can generalize across different word forms making it the more suitable model for Azerbaijani text representation.
